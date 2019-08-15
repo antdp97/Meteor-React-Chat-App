@@ -3,6 +3,7 @@
 
 // import counter collection and common methods
 import '../../api/users/methods';
+import '../../api/conversations/methods';
 
 // import counter collection and common methods
 import '../../api/counters/counters';

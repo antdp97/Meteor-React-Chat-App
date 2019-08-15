@@ -18,6 +18,7 @@ import Profile from '../pages/Profile';
 import NotFound from '../pages/Not-Found';
 import RecoverPassword from '../pages/RecoverPassword';
 import ResetPassword from '../pages/ResetPassword';
+import Messenger from '../pages/Messenger';
 
 // import Spinner
 import Spinner from '../components/Spinner';
@@ -36,6 +37,7 @@ const App = props => (
         <PropsRoute path="/signup" component={Signup} {...props} />
         <PropsRoute exact path="/profile" component={Profile} {...props} />
         <PropsRoute exact path="/profile/:_id" component={Profile} {...props} />
+        <PropsRoute exact path="/messenger" component={Messenger} {...props} />
         <PropsRoute
           path="/recover-password"
           component={RecoverPassword}

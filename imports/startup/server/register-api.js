@@ -11,4 +11,6 @@ import '../../api/users/hooks.js';
 import '../../api/counters/methods.js';
 import '../../api/counters/publications.js';
 
-// import another api
+// import another conversations
+import '../../api/conversations/conversations';
+import '../../api/conversations/publications';

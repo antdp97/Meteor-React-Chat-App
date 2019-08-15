@@ -14,6 +14,7 @@ if (Meteor.isServer) {
 
   // current logged in user publication
   Meteor.publish('user', function() {
+    console.log(this.userId);
     if (this.userId) {
       return Meteor.users.find(
         { _id: this.userId },
