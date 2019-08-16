@@ -32,9 +32,10 @@ class Directory extends React.Component {
   handleKeyDown = (e) =>{
     console.log(this.state.payloadInvite);
     if(e.key === "Enter"){
+      confirm("Are you sure you want to invite this User?");
       Meteor.call("createInvitation",this.state.payloadInvite,Meteor.userId(),(e,result)=>{
         if(!e){  
-          console.log(`Invite submited ${this.state.payloadInvite}`); 
+          console.log(this.state.payloadInvite); 
         }
       })
     }

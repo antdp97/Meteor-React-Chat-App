@@ -53,6 +53,13 @@ const LoggedInNav = () => (
       </NavLink>
     </li>
     <li className="nav-item">
+      <NavLink to="/dashboard">
+        <button type="button" className="dropdown-item">
+          Dashboard
+        </button>
+      </NavLink>
+    </li>
+    <li className="nav-item">
       <div className="dropdown-divider" />
     </li>
     <li>

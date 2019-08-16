@@ -3,6 +3,21 @@ import { check } from 'meteor/check';
 import Conversations from './conversations';
 
 Meteor.methods({
+    //Create New Conversation after User Accepts Request
+    createNewConversation(userId,contactId){
+        Conversations.insert(
+            {
+                talker : [ 
+                    userId, 
+                    contactId
+                ],
+                messages : [ 
+                ]
+            }
+        )
+    },
+
+
     //Handle the press Enter event of Input to Update the conversation
     enterChat(userId,conversationId,chatContent){
         Conversations.update(
@@ -16,6 +31,9 @@ Meteor.methods({
             }}
         )
     },
+    //Create New Conversation when One User accepts the Invitation from other user.
+
+
 
     //Count all Chat in Messages of ONE Conversation
     countAllMessages(){
@@ -25,6 +43,7 @@ Meteor.methods({
         //     },
         //     {$project: { count:{ $size : "$messages" } } }
         // ]);
+
         const messages = Conversations.findOne(
             {_id: new Meteor.Collection.ObjectID("5d53c6d5b48de1c9fe2e2e4f")},
             {fields:

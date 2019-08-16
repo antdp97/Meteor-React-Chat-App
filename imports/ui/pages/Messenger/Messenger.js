@@ -10,10 +10,10 @@ import Users from '../../../api/users/users';
 import InvitationList from '../../components/Messenger/InvitationList/InvitationList';
 import Conversation from '../../components/Messenger/Conversation/Conversation';
 import DirectoryList from '../../components/Messenger/Directory/Directory';
-import InviteNotification from '../../components/Modal/Modal';
+import InviteNotification from '../../components/Messenger/InviteNotification/InviteNotification';
 //Style file
 import './Messenger.scss';
-import { ModalApp } from '../../components/Messenger/InviteNotification/InviteNotification';
+// import { ModalApp } from '../../components/Messenger/InviteNotification/InviteNotification';
 
 export default class Messenger extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ export default class Messenger extends React.Component {
 
     return (
       <div className="mh-100 container-fluid border border-primary">
-        <ModalApp />
+        
         {/* Row 1:User Profile + Invite List */}
         <div className="row border-bottom">
           {/* User Profile */}
@@ -63,8 +63,11 @@ export default class Messenger extends React.Component {
           </div>
 
           {/* Invite List */}
-          <div className="col-9">
+          <div className="col-6">
             <InvitationList />
+          </div>
+          <div className="col-3">
+            <InviteNotification />
           </div>
         </div>
 

@@ -32,7 +32,7 @@ class Conversation extends React.Component {
       })
     }
     //Reset the Chat
-    this.state.payloadChat=""
+    this.state.payloadChat="";
   }
 
   //Handle the Input Box

@@ -1,0 +1,58 @@
+//NEW
+<div>
+            <li className="nav-item dropdown">
+            {/* DropDown List */}
+            <a className="nav-link dropdown-toggle mr-lg-2" id="contactsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+            <i className="fa fa-fw fa-bell"></i>
+            <span className="d-lg-none" >
+              Contacts
+              <span className="badge badge-pill badge-warning">6 new</span>
+            </span>
+            <span className="indicator text-warning d-none d-lg-block">
+              <i className="fa fa-fw fa-circle"></i>
+            </span>
+            </a>
+            {/* DropDown Items */}
+          <div className="dropdown-menu dropdown-menu-right" style={styleMinWidth} aria-labelledby="contactsDropdown">
+            <h6 className="dropdown-header">Contacts:</h6>
+            <div className="dropdown-divider"></div>
+            <a className="dropdown-item" href="#">
+              <img src="" className="rounded-circle" style={styleImg}/>
+              <div className="text-left user-item" style={styleuserItem}>
+                Email
+              </div>
+              <span className="text-right">
+                  <input type="button" className="btn btn-primary btn-sm" value="Accept"/>
+                  <input type="button" className="btn btn-default btn-sm" value="Reject"/>
+              </span>
+            </a>
+            <div className="dropdown-divider"></div>
+            <a className="dropdown-item" href="#">
+              <img src="" className="rounded-circle" style={styleImg}/>
+              <div className="text-left user-item" style={styleuserItem}>
+                Email
+              </div>
+              <div style={styleInline}>
+                <input type="button" className="btn btn-primary btn-sm" value="Accept" />
+                <input type="button" className="btn btn-default btn-sm" value="Reject" />
+              </div>
+            </a>
+          </div>
+        </li>
+      </div>
+
+
+//OLD
+
+<div>
+        <button className="btn btn-info" onClick={this.handleOpenModal}>Friend Request</button>
+        <ReactModal
+          isOpen={this.state.showModal}
+          contentLabel="Minimal Modal"
+        >
+          <div className="container-Request">
+            {this.renderRequestList()}
+          </div>
+          <button className="btn btn-info" onClick={this.handleCloseModal}>Close</button>
+        </ReactModal>
+      </div>

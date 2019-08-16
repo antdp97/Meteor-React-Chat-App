@@ -5,11 +5,12 @@ Meteor.methods({
     //Create new Invitation from Invite Button
     createInvitation(emailadd,userId){
         const invitedUser = Meteor.users.findOne({"emails.address": emailadd });
-        console.log(invitedUser);
+        
         if( invitedUser === undefined ){
             console.log("Can't find user");
         }
         else{
+            console.log(invitedUser);
             Invitations.insert(
                 {
                 senderId : userId,
@@ -26,7 +27,7 @@ Meteor.methods({
     //isResponded will always be changed to true after answering the form.
     //isAccepted will be changed based on the answer.
     confirmAnswered(answer,invitationId){
-        Invitations.updateOne(
+        Invitations.update(
             { _id: invitationId },
             {
                 $set: { isResponded : true , isAccepted : answer }
