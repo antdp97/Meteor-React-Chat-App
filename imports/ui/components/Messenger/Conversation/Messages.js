@@ -21,11 +21,30 @@ const msg = {
 };
 
 export default class Message extends Component {
+  // constructor(props){
+  //   super(props);
+  //   this.state = {
+  //     messCounter : 0
+  //   }
+  //   // this.messageCondition = this.messageCondition.bind(this);
+  // }
+
+
+  // //Mark the message as seen when being render if the message has not been rendered before
+  // messageCondition(){
+  //   //console.log(this.props.message);
+  //   if(this.props.message.status === false){
+      
+  //     this.setState((state) => {messCounter: state.messCounter +1})
+  //   }
+  //   else{
+  //     return <span>Seen</span>
+  //   }
+  // }
   //CHECK IF THE MESSAGE COME FROM USER OR RECEIVER
   checkMessageSender() {
     
     //if message is sent from user the message will be rendered on the right of the context
-
     if (this.props.message.senderId === Meteor.userId()) {
       return (
         <div className="d-flex flex-row-reverse">
@@ -35,12 +54,16 @@ export default class Message extends Component {
         </div>
       );
     } else {
+      // console.log(this.props.message.status);
       return (
+        
         <div className="d-flex flex-row ">
           <div className="border p-2" style={msg}>
             {this.props.message.content}
           </div>
+          
         </div>
+        
       );
     }
   }

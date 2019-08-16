@@ -1,6 +1,5 @@
 //InviteNotification
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
 
 export class ModalApp extends Component {
@@ -28,8 +27,15 @@ export class ModalApp extends Component {
         <button onClick={this.handleOpenModal}>Trigger Modal</button>
         <ReactModal
           isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
+          contentLabel="Minimal Modal"
         >
+          <div className="Invitation-form">
+          <form>
+            
+            
+          </form>  
+          </div>
+          
           <button onClick={this.handleCloseModal}>Close Modal</button>
         </ReactModal>
       </div>

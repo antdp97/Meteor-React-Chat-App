@@ -8,6 +8,8 @@ const inlineList = {
 
 export default class InviteItem extends Component {
   render() {
-    return <li style={inlineList}>{this.props.contact.emails[0].address}</li>;
+    console.log(this.props.contact);
+    const { receiverId } = this.props.contact;
+    return <li style={inlineList}>{receiverId}</li>;
   }
 }

@@ -11,6 +11,11 @@ import '../../api/users/hooks.js';
 import '../../api/counters/methods.js';
 import '../../api/counters/publications.js';
 
-// import another conversations
+// import api conversations
 import '../../api/conversations/conversations';
 import '../../api/conversations/publications';
+
+// import api invitations
+import '../../api/invitations/invitations';
+import '../../api/invitations/publications';
+

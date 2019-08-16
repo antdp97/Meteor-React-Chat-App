@@ -1,26 +1,38 @@
 import { Meteor } from 'meteor/meteor';
 import Conversations from './conversations.js';
 
+//Make sure the server is running
 if (Meteor.isServer) {
-  // Meteor.publish('conversation.directory',() => {
-  //   if(!this.userId){
-  //     return this.ready();
-  //   }
-  //   return Conversations.
-  // })
+  //Return all Conversation
+  Meteor.publish('conversations.dashboard',function(){
+    return Conversations.find({})
+  })
+
 
   //return Conversation match this.userId and currentContact Id
-  //Publish Conversation for both user
+  //Publish all Conversations that current user participate
   Meteor.publish('conversations.chat', function(){
-    // if(!this.userId){
-    //   return this.ready();
-    // }
-    //console.log('here');
+    if(!this.userId){
+      return this.ready();
+    }
+    // console.log(this.userId);
     return Conversations.find(
-      {$or : [ 
-        { $and : [ { userA : "5wFCcb3SGHF72Knec" } , { userB : "YYxkg9kevpvSZR48g" } ] }, 
-        { $and : [ { userA : "YYxkg9kevpvSZR48g" } , { userB : "5wFCcb3SGHF72Knec" } ] }        
-      ]}
+      {talker: { $in: [this.userId]}}
+    )
+  });
+  //return Conversation match this.userId for Directory
+  //ONLY return talker field and conversationID
+  Meteor.publish('conversations.directory', function(){
+    if(!this.userId){
+      return this.ready();
+    }
+    // console.log(this.userId);
+    return Conversations.find(
+      {talker: { $in: [this.userId]},
+    fields:{
+      talkers:1,
+      _id:1
+    }}
     )
   });
 
