@@ -30,7 +30,7 @@ class Directory extends React.Component {
 
   //Press Enter to submit
   handleKeyDown = (e) =>{
-    console.log(this.state.payloadInvite);
+    //console.log(this.state.payloadInvite);
     if(e.key === "Enter"){
       confirm("Are you sure you want to invite this User?");
       Meteor.call("createInvitation",this.state.payloadInvite,Meteor.userId(),(e,result)=>{
@@ -90,7 +90,7 @@ class Directory extends React.Component {
 }
 
 export default withTracker(() => {
-  const directorySub = Meteor.subscribe('conversations.chat');
+  const directorySub = Meteor.subscribe('conversations.directory');
   const directory = Conversations.find({}).fetch();
   const directoryReady = directorySub.ready();
   return {

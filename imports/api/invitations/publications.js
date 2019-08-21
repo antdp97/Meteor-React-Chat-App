@@ -7,7 +7,7 @@ if ( Meteor.isServer ){
     //Publish the List of invitation user have received but havent answered. Friend Request
     //Only publish those invitation has not been respoded
     Meteor.publish('invitations.received',function(){
-        console.log(this.userId + "here");
+        // console.log(this.userId + "here");
         if(!this.userId){
             return this.ready();
         }        
@@ -29,8 +29,8 @@ if ( Meteor.isServer ){
         }
         return Invitations.find(
             {$and:[
-                {senderId: this.userId},
-                {isResponded:false}
+                { senderId:    this.userId},
+                { isResponded: false}
             ]}
         );
     })

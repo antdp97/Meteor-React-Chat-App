@@ -22,10 +22,11 @@ class InvitationList extends React.Component {
       return this.props.invitationReady;
     }
     else{
+      //console.log(this.props.invitations);
       return (
         <div id="invitation">
           <ul>
-            {' '}
+            {/* {' '} */}
             Invite List:
             {this.renderInviteItem()}
           </ul>
@@ -37,7 +38,10 @@ class InvitationList extends React.Component {
 
 export default withTracker(() => {
   const invitationSub = Meteor.subscribe('invitations.sent');
-  const invitations = Invitations.find({}).fetch();
+  // Why Return both sender and receiver if not define senderId: Meteor.userId() here.????
+  // It should have filtered in Server Publication ?? Why still have to filter once more in the client ???
+  // Does filtering in Server pub is not working ?? 
+  const invitations = Invitations.find({ senderId: Meteor.userId() }).fetch();
   const invitationReady = invitationSub.ready();
   // console.log(invitation);
   return {

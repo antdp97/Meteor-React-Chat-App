@@ -1,3 +1,5 @@
+//Available for btaskee@gmail.com & phucanvn2012@gmail.com
+
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import React from 'react';

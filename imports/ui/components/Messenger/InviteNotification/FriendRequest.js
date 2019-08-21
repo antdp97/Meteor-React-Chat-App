@@ -17,8 +17,16 @@ const styleImg ={
 }
 
 export default class FriendRequest extends React.Component {
-    
-    
+    constructor(props){
+        super(props);
+        this.state = {
+
+        }
+        this.handleAcceptOnClick = this.handleAcceptOnClick.bind(this);
+        this.handleRejectOnClick = this.handleRejectOnClick.bind(this);
+    }
+
+
     //Hard Code the onclick Function ACCEPT
     handleAcceptOnClick(){
         
@@ -29,13 +37,14 @@ export default class FriendRequest extends React.Component {
                 console.log("Accepted")
             }
         });
-        Meteor.call('createNewConversation',this.userId(),this.props.request._id,(e,result)=>{
+        Meteor.call('createNewConversation',Meteor.userId(),this.props.request._id,(e,result)=>{
             if(!e){
                 console.log("Create new Conversation success.")
             }
         });
 
     }
+
     //Hard Code the onclick Function REJECT
     handleRejectOnClick(){
         
@@ -49,7 +58,7 @@ export default class FriendRequest extends React.Component {
 
 
     render(){
-        console.log(this.props.request._id);
+        //console.log(this.props.request);
         return(
             <div>
                 <div className="dropdown-divider"></div>

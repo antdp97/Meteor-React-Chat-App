@@ -7,6 +7,12 @@ const inlineList = {
   padding: '5px',
 };
 
+// Style for last child (maybe upgrade the style of bubble chat of message in the future)
+const childstyle ={
+
+}
+
+
 export default class InviteItem extends Component {
   constructor(props){
     super(props);

@@ -28,7 +28,8 @@ Meteor.methods({
     //isAccepted will be changed based on the answer.
     confirmAnswered(answer,invitationId){
         Invitations.update(
-            { _id: invitationId },
+            // { _id: new Meteor.Collection.ObjectID(invitationId)},
+            { _id: new Meteor.Collection.ObjectID(invitationId)},
             {
                 $set: { isResponded : true , isAccepted : answer }
             }

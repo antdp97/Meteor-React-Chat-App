@@ -24,14 +24,18 @@ export default class Contact extends Component {
     const {talker} = this.props.contact;
     //Check if which talker is login user and return the other one.
     const result = (talker[0] === Meteor.userId()) ? talker[1] : talker[0];
+    //console.log(result);
+    //console.log(this.props.contact);  
     return (      
-      <a className="list-group-item list-group-item-action"
-        onClick={() => {
-          this.props.onChange(result);
-        }}
-      >     
-        {result}
-      </a>
+      <div className="contact-container">
+        <a className="list-group-item list-group-item-action"
+          onClick={() => {
+            this.props.onChange(result._str);
+          }}
+        >     
+          {result}
+        </a>
+      </div>
     )
   }
 }

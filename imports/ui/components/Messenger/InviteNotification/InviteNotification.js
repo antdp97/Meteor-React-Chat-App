@@ -8,9 +8,6 @@ import FriendRequest from './FriendRequest';
 //Invitation Collection - Request
 import Invitations from '../../../../api/invitations/invitations';
 
-//
-import './InviteNotifcation.css';
-
 const styleMinWidth = {
   minWidth: "300px"
 }
@@ -34,7 +31,7 @@ class InviteNotification extends Component {
   // }
   //Render Small Request
   renderRequestList() {
-    console.log(this.props.requests);
+    //console.log(this.props.requests);
     return this.props.requests.map((request,index) => (
       <FriendRequest
         key={index}
@@ -49,24 +46,24 @@ class InviteNotification extends Component {
     return (
       
       <div>
-            <li className="nav-item dropdown">
-            {/* DropDown List */}
-            <a className="nav-link dropdown-toggle mr-lg-2" id="contactsDropdown" href="#" data-toggle="dropdown">
-            <i className="fa fa-fw fa-bell"></i>
-          <span className="" >
-              Contacts
-            <span className="badge badge-pill badge-warning">0 new</span>
-          </span>
-          <span className="indicator text-warning">
-            {/* <i className="fa fa-fw fa-circle">Here</i> */}
-          </span>
-          </a>
-            {/* DropDown Items */}
-          <div className="dropdown-menu dropdown-menu-right" style={styleMinWidth} aria-labelledby="contactsDropdown">
-            <h6 className="dropdown-header">Contacts:</h6>     
-            {this.renderRequestList()}       
-          </div>
-        </li>
+            <div className="nav-item dropdown">
+              {/* DropDown List */}
+                <a className="nav-link dropdown-toggle mr-lg-2" id="contactsDropdown" href="#" data-toggle="dropdown">
+                <i className="fa fa-fw fa-bell"></i>
+                <span className="" >
+                  Contacts
+                <span className="badge badge-pill badge-warning">0 new</span>
+                </span>
+              <span className="indicator text-warning">
+                {/* <i className="fa fa-fw fa-circle">Here</i> */}
+              </span>
+              </a>
+                {/* DropDown Items */}
+              <div className="dropdown-menu dropdown-menu-right" style={styleMinWidth} aria-labelledby="contactsDropdown">
+                <h6 className="dropdown-header">Contacts:</h6>
+                {this.renderRequestList()}       
+              </div>
+            </div>
       </div>
     );
   }
@@ -76,7 +73,8 @@ class InviteNotification extends Component {
 
 export default withTracker(() => {
   const requestsSub = Meteor.subscribe('invitations.received');
-  const requests = Invitations.find({}).fetch();
+  //Happened same as in Invitation List???
+  const requests = Invitations.find({ receiverId: Meteor.userId() }).fetch();
   const requestReady = requestsSub.ready();
   // console.log(invitation);
   return {
